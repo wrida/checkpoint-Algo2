@@ -1,0 +1,28 @@
+ALGORITHM algo_htab
+VAR
+    set1 : Array_of_integer[n]
+    set2 : Array_of_integer[m]
+    set : Array_of_integer[n+m]
+    HTAB : HASH_table<integer,integer>
+    sumDiff : integer =0
+    sumComm : integer =0
+BEGIN
+    set := set1.concat(set2)
+    FOR i de 0 to set.length-1 do
+    IF (HTAB.lookup(set[i])= false) then
+    HTAB.insert(set[i], 1)
+    ElSE 
+    HTAB.insert(set[i], HTAB.get(set[i])+1)
+    END IF
+    END for
+    FOR Item in HTAB do
+    IF (HTAB.get(Item) >1) 
+    sumComm = sumComm + (item * HTAB.get(Item))
+    END IF
+    IF (HTAB.get(Item) =1) 
+    sumDiff = sumDiff + item
+    END IF
+    END FOR
+    write('sum of all distinct elements :',sumDiff);
+    write('sum of all overlapping elements :',sumComm);
+END

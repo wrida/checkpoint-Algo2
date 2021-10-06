@@ -1,0 +1,33 @@
+ALGORITHM Algo2
+VAR
+    set 1: Array_of_integer [n]
+    Set 2: Array_of_integer [m]
+    set  : Array_of_integer[n+m] 
+    i : integer = 0
+    j : integer = 0
+    n,j,k,l : integer
+    sumDistinct : integer = 0
+    sumRpeat : integer = 0
+BEGIN
+   read [n]
+   for i de 0 to n-1 do
+   read(set[i])
+   End for
+   read[m]
+for j de 0 to j-1 do
+read(set[j])
+END for
+set = concat(set,set)
+for k de 0 to set.length-1 do
+check = false
+for l de 0 to set.length-1 do
+if set[k] == set[l] then
+sumRpeat = sumRpeat + set[k];
+End if
+End for
+if (check = false) then
+ sumDistinct = sumDistinct + set[k];
+End for
+write('sum of all distinct elements :',sumDistinct)
+write('sum of all overlapping elements :',sumRpeat)
+End
